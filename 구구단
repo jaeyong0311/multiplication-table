@@ -1,0 +1,24 @@
+#include <stdio.h>
+
+int main() {
+    printf("파일 출력중....\n");
+
+    FILE *wfp;
+    int i, k, n;
+
+    wfp = fopen("99.txt", "w");
+
+  while (1) {
+    int number;
+    printf("원하시는 구구단을 입력하세요(0=종료) : ");
+    scanf("%d", &number);
+    if(number == 0) break;
+    for (int count = 1; count <= 9; count++){
+      printf("%d X %d = %2d\n", number, count, number*count);
+      fprintf(wfp, "\t %d X %d = %2d", number, count, number*count);
+      fprintf(wfp, "\n");
+    }
+  }
+  fclose(wfp);
+  printf("파일 출력 완료...\n");
+}
